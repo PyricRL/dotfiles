@@ -20,9 +20,12 @@
         "mpd"
     ],
     "modules-right": [
+        "custom/slash1",
         "pulseaudio#microphone",
         "pulseaudio",
+        "custom/slash2",
         "network",
+        "custom/slash3",
         "clock",
     ],
     "custom/icon": {
@@ -100,18 +103,8 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
-    "network": {
-        "interval": 1,
-        "interface": "enp5s0",
-        "format": "󰤨",
-        "format-wifi": "󰤨",
-        "format-ethernet": "   {bandwidthDownBits}",
-        "format-disconnected": "", // hides on empty
-        "tooltip-format": "󰤨   Wireless",
-        "tooltip-format-wifi": "󰤨   Wireless",
-        "tooltip-format-ethernet": "    Ethernet",
-        "tooltip-format-disconnected": "    Disconnected",
-        "on-click": "nm-connection-editor"
+    "custom/slash1": {
+        "format": "/"
     },
     "pulseaudio": {
         "format": "{icon}    {volume}%",
@@ -133,6 +126,25 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 1,
+    },
+    "custom/slash2": {
+        "format": "/"
+    },
+    "network": {
+        "interval": 1,
+        "interface": "enp5s0",
+        "format": "󰤨",
+        "format-wifi": "󰤨",
+        "format-ethernet": "   {bandwidthDownBits}",
+        "format-disconnected": "", // hides on empty
+        "tooltip-format": "󰤨   Wireless",
+        "tooltip-format-wifi": "󰤨   Wireless",
+        "tooltip-format-ethernet": "    Ethernet",
+        "tooltip-format-disconnected": "    Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    "custom/slash3": {
+        "format": "/"
     },
     "clock": {
         "format": " {:%I:%M %p}",

@@ -54,6 +54,9 @@
 
 .modules-left {
     background-color: @bg;
+    padding: 0 4px;
+    margin: 1px;
+    border-radius: 4px;
 }
 
 
@@ -121,14 +124,35 @@
 .modules-right {
 }
 
+#custom-slash1,
+#custom-slash2,
+#custom-slash3 {
+    font-size: 26px;
+    font-weight: 900;
+}
+
+#custom-slash1 {
+    color: @bmw_light_blue;
+}
+
+#custom-slash2 {
+    color: @bmw_dark_blue;
+}
+
+#custom-slash3 {
+    color: @bmw_red;
+}
+
 #pulseaudio {
     border-bottom: 2px solid @bmw_light_blue;
     padding: 0 10px;
+    min-width: 55px;
 }
 
 
 #network {
     border-bottom: 2px solid @bmw_dark_blue;
+    min-width: 90px;
     padding: 0 10px;
 }
 
@@ -136,5 +160,6 @@
 #clock {
     border-bottom: 2px solid @bmw_red;
     padding: 0 10px;
-    font-size: 15px
-} 
+    font-size: 15px;
+    min-width: 25px;
+}
