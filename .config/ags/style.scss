@@ -1,5 +1,2 @@
-@use "widget/menus/AudioMenu.scss";
-
-window.Bar {
-    background-color: black;
-}
+@use "scss/Bar.scss";
+@use "scss/AudioMenu.scss";

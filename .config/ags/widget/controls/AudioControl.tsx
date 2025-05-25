@@ -9,14 +9,15 @@ export function AudioControl() {
         subprocess("pactl set-sink-mute @DEFAULT_SINK@ toggle")
     }
 
-    return <box className="AudioControl" css="min-width: 200px">
-        <button onClicked={toggleMute}>
+    return <box name="AudioControl" css="min-width: 200px">
+        <button onClicked={toggleMute} name={"fullMuteAudioButton"}>
             <icon icon={bind(speaker, "volumeIcon")} />
         </button>
         <slider
             hexpand
             onDragged={({ value }) => speaker.volume = value}
             value={bind(speaker, "volume")}
+            name={"speakerSlider"}
         />
     </box>
 }

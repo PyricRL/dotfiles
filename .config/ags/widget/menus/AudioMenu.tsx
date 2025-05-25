@@ -12,7 +12,7 @@ const AudioMenuWindow = (
         heightRequest={200}
         visible={false}
     >
-        <box orientation={Gtk.Orientation.VERTICAL}>
+        <box orientation={Gtk.Orientation.VERTICAL} name={"AudioMenuWidget"}>
             <label>Audio Control</label>
             <Gtk.Separator visible/>
             <AudioControl/>
