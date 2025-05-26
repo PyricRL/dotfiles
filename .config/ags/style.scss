@@ -1,2 +1,42 @@
-@use "scss/Bar.scss";
-@use "scss/AudioMenu.scss";
+.Bar {
+    background-color: transparent;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.leftCont {
+    background-color: rgb(153, 153, 153);
+    border-radius: 2px;
+    padding: 1px;
+}
+
+.OpenApps {
+    background-color: rgb(212, 125, 125);
+    border-radius: 2px;
+    // margin: 2px;
+    padding: 1px;
+    font-size: 20px;
+}
+
+.OpenApps button {
+    min-width: 30px;
+    background-color: rgb(191, 141, 197);
+}
+
+.Audio box {
+}
+
+.AudioPopover {
+    min-width: 250px;
+}
+
+button {
+    padding: 0px;
+    margin: 1px;
+    border-radius: 4px;
+}
+
+image {
+    min-width: 25px;
+}

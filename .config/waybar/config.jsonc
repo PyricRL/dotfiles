@@ -1,16 +1,160 @@
+// -*- mode: jsonc -*-
 {
-   "layer": "top",
-   "height": 32,
-   "spacing": 0,
-
-   "_Modules_": "Choose the order of the modules",
-   "modules-left": ["custom/logo", "group/r-logo", 
-                    "group/l-tags", "dwl/tags", "group/r-tags"],
-
-   "modules-center": ["clock"],
-
-   "modules-right": ["pulseaudio", "network", "battery", "idle_inhibitor", "group/r-system",
-                     "group/l-tray", "tray", "group/power-menu"], 
-
-   "include": "~/.config/waybar/modules.json"
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/icon",
+        "custom/bottomright1",
+        "hyprland/workspaces",
+        "custom/bottomright2",
+        "wlr/taskbar",
+        "custom/bottomright3",
+        "custom/wofi",
+        "custom/bottomright4",
+        "tray"
+    ],
+    "modules-center": [
+        "mpd",
+        "tray"
+    ],
+    "modules-right": [
+        "custom/slash1",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "custom/slash2",
+        "network",
+        "custom/slash3",
+        "clock",
+        "tray"
+    ],
+    "custom/icon": {
+        "format": "       ",
+        "tooltip": false
+    },
+    "custom/bottomright1": {
+        "format": "",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "active-only": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "Comfort",
+            "2": "EcoPro",
+            "3": "Sport",
+            "4": "Adaptive",
+            "5": "Custom 1",
+            "6": "Custom 2",
+            "7": "Custom 3",
+            "8": "Custom 4",
+            "9": "Custom 5",
+            "10": "Custom 6"
+        },
+        "on-scroll-up": "hyprctl dispatch workspace r+1",
+        "on-scroll-down": "hyprctl dispatch workspace r-1"
+    },
+    "custom/bottomright2": {
+        "format": "",
+        "tooltip": false
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    "custom/bottomright3": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/wofi": {
+        "format": "",
+        "on-click": "wofi --show drun"
+    },
+    "custom/bottomright4": {
+        "format": "",
+        "tooltip": false
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "custom/slash1": {
+        "format": "/"
+    },
+    "pulseaudio": {
+        "format": "{icon}    {volume}%",
+        "tooltip": true,
+        "tooltip-format": "{desc}",
+        "format-muted": "    MUTE",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 1,
+        "format-icons": {
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "tooltip": true,
+        "sink": "alsa_input.usb-3142_Fifine_Microphone-00.mono-fallback",
+        "tooltip-format": "{desc}",
+        "format-source": "  {volume}%",
+        "format-source-muted": "   MUTE",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 1
+    },
+    "custom/slash2": {
+        "format": "/"
+    },
+    "network": {
+        "interval": 1,
+        "interface": "enp5s0",
+        "format": "󰤨",
+        "format-wifi": "󰤨",
+        "format-ethernet": "   {bandwidthDownBits}",
+        "format-disconnected": "",
+        "tooltip-format": "󰤨   Wireless",
+        "tooltip-format-wifi": "󰤨   Wireless",
+        "tooltip-format-ethernet": "    Ethernet",
+        "tooltip-format-disconnected": "    Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    "custom/slash3": {
+        "format": "/"
+    },
+    "clock": {
+        "format": " {:%I:%M %p}",
+        "tooltip-format": "{:%a, %b %e, %Y\n%m/%d/%Y}"
+    }
 }
