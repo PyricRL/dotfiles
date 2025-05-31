@@ -4,6 +4,8 @@ import { Variable, subprocess, bind } from "astal"
 import { OpenApps } from "./controls/Apps"
 import { Audio } from "./controls/Audio";
 import { Time } from "./controls/Time";
+import { Media } from "./controls/Media"
+import { MediaTest } from "./controls/TestAudio";
 
 const time = Variable("").poll(1000, "date")
 
@@ -25,7 +27,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 <OpenApps />
             </box>
             <box cssClasses={["centerCont"]}>
-                <label>Center</label>
+                <Media />
             </box>
             <box halign={Gtk.Align.END} cssClasses={["rightCont"]}>
                 <Audio />

@@ -1,7 +1,7 @@
 .Bar {
     background-color: transparent;
-    padding: 1px;
-    font-size: 14px;
+    // padding: 1px;
+    // font-size: 14px;
     font-weight: 400;
 }
 
@@ -9,6 +9,12 @@
     background-color: rgb(153, 153, 153);
     border-radius: 2px;
     padding: 1px;
+}
+
+.rightCont {
+    // background-color: black;
+    // border-bottom-left-radius: 10000000px;
+    // padding-left: 100px;
 }
 
 .OpenApps {
@@ -25,18 +31,38 @@
 }
 
 .Audio box {
+    padding: 0 2px;
+    min-width: 62px;
 }
 
 .AudioPopover {
     min-width: 250px;
 }
 
+.Time {
+    padding: 0 2px;
+}
+
 button {
     padding: 0px;
     margin: 1px;
     border-radius: 4px;
+    font-weight: 400;
 }
 
 image {
     min-width: 25px;
+}
+
+/* for icons audio */
+.googleIcon {
+  font-family: "Material Icons";
+  font-size: 1.1em;
+}
+
+.otherIcon {
+    font-family: "Font Awesome 6 Free";
+    font-size: 1.1em;
+    padding-right: 10px;
+    padding-left: 4px;
 }
