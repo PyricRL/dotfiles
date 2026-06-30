@@ -14,15 +14,15 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      desktop = lib.nixosSystem {
         inherit system;
-	modules = [ ./configuration.nix ];
+	modules = [ ./hosts/desktop/configuration.nix ];
       };
     };
     homeConfigurations = {
       pyric = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-	modules = [ ./home.nix ];
+	modules = [ ./modules/user/home.nix ];
       };
     };
   };

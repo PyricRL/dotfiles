@@ -13,7 +13,7 @@ in
   };
   
   programs.starship = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
     settings = {
       add_newline = true;
