@@ -39,7 +39,7 @@
     settings = {
       user = {
         name = "Pyric";
-	email = "ljcosa@icloud.com";
+	email = "temp@example.com";
       };
     };
   };
