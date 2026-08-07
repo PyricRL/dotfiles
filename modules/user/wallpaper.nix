@@ -1,11 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./hyprland
-    ./niri
-  ];
-
   home.packages = with pkgs; [
-    wofi
+    awww
   ];
 }

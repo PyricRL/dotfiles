@@ -7,16 +7,15 @@
     ./shell
     ./vesktop
     ./wm
+    ./editor
+    ./quickshell
+    ./wallpaper.nix
   ];
 
   home.username = "pyric";
   home.homeDirectory = "/home/pyric";
 
   home.stateVersion = "26.05"; # Please read the comment before changing.
-
-  home.sessionVariables = {
-    EDITOR = "neovim";
-  };
 
   services.cliphist = {
     enable = true;
@@ -39,7 +38,7 @@
     settings = {
       user = {
         name = "Pyric";
-	email = "temp@example.com";
+        email = "temp@example.com";
       };
     };
   };

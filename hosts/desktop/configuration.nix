@@ -9,6 +9,11 @@
     ../../modules/system/gaming
     ../../modules/system/terminal.nix
     ../../modules/system/texteditor.nix
+    ../../modules/system/flatpak.nix
+    ../../modules/system/spotify.nix
+    ../../modules/system/notifications.nix
+    ../../modules/system/video_player.nix
+    ../../modules/system/polkit.nix
   ];
 
   gamingApplications.enable = true;
@@ -17,6 +22,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.tailscale.enable = true;
+  
   nixpkgs.overlays = [
     (final: prev: {
       openblas = 
@@ -25,6 +32,8 @@
         else prev.openblas;
     })
   ];
+
+  hardware.usb-modeswitch.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -40,6 +49,7 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Chicago";
+  time.hardwareClockInLocalTime = true;
 
   fonts = {
     packages = with pkgs; [
@@ -56,7 +66,7 @@
 
   users.users.pyric = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
+    extraGroups = [ "wheel" "input" ]; 
     packages = with pkgs; [
       tree
     ];
@@ -66,10 +76,19 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  #virtualization
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  users.groups.libvirtd.members = [ "pyric" ];
+  users.groups.kvm.members = [ "pyric" ];
+
   environment.systemPackages = with pkgs; [
+    gnome-boxes
+    dnsmasq
+    phodav
+
     wget
-    fuzzel
-    librewolf
   ];
 
   system.stateVersion = "26.05"; 
