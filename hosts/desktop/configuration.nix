@@ -20,9 +20,15 @@
 
   services.displayManager.ly.enable = true;
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1216", GROUP="input", MODE="0660"
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   services.tailscale.enable = true;
+
+  services.atk-tool.enable = true;
   
   nixpkgs.overlays = [
     (final: prev: {
@@ -54,12 +60,13 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.caskaydia-mono
+      jetbrains-mono
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "CaskaydiaMono Nerd Font" ];
-	monospace = [ "CaskaydiaMono Nerd Font" ];
-	sansSerif = [ "CaskaydiaMono Nerd Font" ];
+        serif = [ "JetBrains Mono" ];
+        monospace = [ "JetBrains Mono" ];
+        sansSerif = [ "JetBrains Mono" ];
       };
     };
   };
@@ -90,6 +97,24 @@
 
     wget
   ];
+
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+    ];
+
+    config = {
+      niri = {
+        default = [ "gnome" "gtk"];
+
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      };
+    };
+  };
 
   system.stateVersion = "26.05"; 
 }

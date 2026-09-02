@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell";
     };
+
+    oshot.url = "github:PyricRL/oshot";
+
+    atk-tool.url = "github:PyricRL/atk-tool";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
@@ -31,7 +35,11 @@
     nixosConfigurations = {
       desktop = lib.nixosSystem {
         inherit system;
-        modules = [ ./hosts/desktop/configuration.nix ];
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          ./hosts/desktop/configuration.nix 
+          inputs.atk-tool.nixosModules.default
+        ];
       };
     };
     homeConfigurations = {

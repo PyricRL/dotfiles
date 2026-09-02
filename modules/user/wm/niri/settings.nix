@@ -42,6 +42,12 @@
           clip-to-geometry = true;
         }
       ];
+      input = {
+        mouse = {
+          accel-profile = "flat";
+          accel-speed = 1.0;
+        };
+      };
       outputs = {
         "DP-3" = {
           mode = {

@@ -1,3 +1,5 @@
+vim.lsp.semantic_tokens.enabled = false
+
 vim.lsp.config("lua_ls", {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },

@@ -7,9 +7,10 @@ fi
 
 gpu-screen-recorder \
   -w "DP-3" \
-  -f 60 \
-  -b 7000 \
-  -r 10 \
+  -f 30 \
+  -bm cbr \
+  -q 4000 \
+  -r 15 \
   -c mp4 \
   -a "default_output" \
   -o "$HOME/Videos/" &

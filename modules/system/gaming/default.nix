@@ -33,7 +33,5 @@
     services.udev.packages = with pkgs; [
       oversteer
     ];
-
-    services.input-remapper.enable = true;
   };
 }

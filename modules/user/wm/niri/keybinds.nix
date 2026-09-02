@@ -9,9 +9,8 @@
     "super+e".action = spawn "${pkgs.thunar}/bin/thunar";
     "super+t".action = toggle-window-floating;
 
-    "super+shift+s".action = spawn "bash" "-c" ''
-      ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.wl-clipboard}/bin/wl-copy
-    '';
+    "super+shift+s".action = spawn "oshot";
+    "super+s".action = spawn "oshot" "--instant-copy";
 
     "super+space".action = spawn "${pkgs.wofi}/bin/wofi" "--show" "drun";
 
