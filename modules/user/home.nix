@@ -10,6 +10,7 @@
     ./editor
     ./quickshell
     ./wallpaper.nix
+    ./theme.nix
   ];
 
   home.username = "pyric";

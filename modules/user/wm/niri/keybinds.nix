@@ -12,7 +12,7 @@
     "super+shift+s".action = spawn "oshot";
     "super+s".action = spawn "oshot" "--instant-copy";
 
-    "super+space".action = spawn "${pkgs.wofi}/bin/wofi" "--show" "drun";
+    # "super+space".action = spawn "${pkgs.wofi}/bin/wofi" "--show" "drun";
 
     # screen recording
     "super+equal".action = spawn "/home/pyric/.dotfiles/modules/system/gaming/scripts/capture-replay.sh";
@@ -20,8 +20,13 @@
     "super+0".action = spawn "/home/pyric/.dotfiles/modules/system/gaming/scripts/close-replay-buffer.sh";
 
     # quickshell stuff
-    "super+n".action = spawn "qs" "ipc" "call" "shell" "toggleNotifications";
-    "super+p".action = spawn "qs" "ipc" "call" "shell" "togglePower";
+    # "super+n".action = spawn "qs" "ipc" "call" "shell" "toggleNotifications";
+    # "super+p".action = spawn "qs" "ipc" "call" "shell" "togglePower";
+
+    # DMS config
+    "super+space".action = spawn "qs" "ipc" "call" "shell" "toggleLauncher";
+    "super+v".action = spawn "dms" "ipc" "call" "clipboard" "toggle";
+
 
     "super+h".action = focus-column-left;
     "super+l".action = focus-column-right;

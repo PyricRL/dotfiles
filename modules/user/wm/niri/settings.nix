@@ -7,6 +7,10 @@
       hotkey-overlay = {
         skip-at-startup = true;
       };
+      cursor = {
+        theme = "Bibata-Modern-Classic";
+        size = 24;
+      };
       prefer-no-csd = true;
       layout = {
         background-color = "#00000000";
@@ -51,9 +55,9 @@
       outputs = {
         "DP-3" = {
           mode = {
-            width = 1920;
-            height = 1080;
-            refresh = 180.0;
+            width = 2560;
+            height = 1440;
+            refresh = 299.999;
           };
           scale = 1.0;
           position = { x = 0; y = 0; };
@@ -65,7 +69,7 @@
             refresh = 74.97;
           };
           scale = 1.0;
-          position = { x = 1920; y = -420; };
+          position = { x = 2560; y = -420; };
           transform = {
             rotation = 270;
           };

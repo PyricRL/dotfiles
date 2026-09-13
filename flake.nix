@@ -23,6 +23,10 @@
 
     oshot.url = "github:PyricRL/oshot";
 
+    mutagen = {
+      url = "github:InioX/Matugen";
+    };
+
     atk-tool.url = "github:PyricRL/atk-tool";
   };
 

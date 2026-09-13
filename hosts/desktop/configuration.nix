@@ -60,13 +60,13 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.caskaydia-mono
-      jetbrains-mono
+      nerd-fonts.jetbrains-mono
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "JetBrains Mono" ];
-        monospace = [ "JetBrains Mono" ];
-        sansSerif = [ "JetBrains Mono" ];
+        serif = [ "JetBrainsMono Nerd Font" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
+        sansSerif = [ "JetBrainsMono Nerd Font"];
       };
     };
   };
