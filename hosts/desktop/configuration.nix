@@ -14,6 +14,7 @@
     ../../modules/system/notifications.nix
     ../../modules/system/video_player.nix
     ../../modules/system/polkit.nix
+    ../../modules/system/filemanager.nix
   ];
 
   gamingApplications.enable = true;
@@ -22,7 +23,7 @@
 
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1216", GROUP="input", MODE="0660"
-  '';
+ '';
 
   nixpkgs.config.allowUnfree = true;
 
@@ -38,6 +39,11 @@
         else prev.openblas;
     })
   ];
+
+  fileSystems."/mnt/sda"= {
+    device = "/dev/disk/by-uuid/3f5852d3-5eae-4e94-b7e2-6061d5f241c0";
+    fsType = "ext4";
+  };
 
   hardware.usb-modeswitch.enable = true;
 
