@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
   imports = [
     ./browser
@@ -7,10 +7,10 @@
     ./shell
     ./vesktop
     ./wm
-    ./editor
     ./quickshell
     ./wallpaper.nix
     ./theme.nix
+    ./terminal.nix
   ];
 
   home.username = "pyric";
@@ -33,6 +33,10 @@
   programs.home-manager = {
     enable = true;
   };
+
+  home.packages = [
+    inputs.nvim.packages.${pkgs.system}.default
+  ];
 
   xdg.mimeApps = {
     enable = true;

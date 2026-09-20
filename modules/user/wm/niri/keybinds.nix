@@ -1,49 +1,116 @@
-{ config, pkgs, ... }: 
+{ pkgs, ... }:
 {
-  programs.niri.settings.binds = with config.lib.niri.actions; {
-    "super+q".action = close-window;
-    "super+b".action = spawn "${pkgs.librewolf}/bin/librewolf";
-    "super+Return".action = spawn "${pkgs.alacritty}/bin/alacritty";
-    "super+f".action = fullscreen-window;
+  wayland.windowManager.niri.settings.binds = {
+    "Mod+Q" = {
+      close-window = [];
+    };
 
-    "super+e".action = spawn "${pkgs.thunar}/bin/thunar";
-    "super+t".action = toggle-window-floating;
+    "Mod+B" = {
+      spawn = "${pkgs.librewolf}/bin/librewolf";
+    };
 
-    "super+shift+s".action = spawn "oshot";
-    "super+s".action = spawn "oshot" "--instant-copy";
+    "Mod+Return" = {
+      spawn = "${pkgs.alacritty}/bin/alacritty";
+    };
 
-    # "super+space".action = spawn "${pkgs.wofi}/bin/wofi" "--show" "drun";
+    "Mod+F" = {
+      fullscreen-window = [];
+    };
 
-    # screen recording
-    "super+equal".action = spawn "/home/pyric/.dotfiles/modules/system/gaming/scripts/capture-replay.sh";
-    "super+minus".action = spawn "/home/pyric/.dotfiles/modules/system/gaming/scripts/start-replay-buffer.sh";
-    "super+0".action = spawn "/home/pyric/.dotfiles/modules/system/gaming/scripts/close-replay-buffer.sh";
+    "Mod+E" = {
+      spawn = "${pkgs.thunar}/bin/thunar";
+    };
 
-    # quickshell stuff
-    # "super+n".action = spawn "qs" "ipc" "call" "shell" "toggleNotifications";
-    # "super+p".action = spawn "qs" "ipc" "call" "shell" "togglePower";
+    "Mod+T" = {
+      toggle-window-floating = [];
+    };
 
-    # DMS config
-    "super+space".action = spawn "qs" "ipc" "call" "shell" "toggleLauncher";
-    "super+v".action = spawn "dms" "ipc" "call" "clipboard" "toggle";
+    "Mod+Shift+S" = {
+      spawn = "oshot";
+    };
 
+    "Mod+S" = {
+      spawn = [
+        "oshot"
+        "--instant-copy"
+      ];
+    };
 
-    "super+h".action = focus-column-left;
-    "super+l".action = focus-column-right;
-    "super+k".action = focus-workspace-up;
-    "super+j".action = focus-workspace-down;
+    "Mod+Space" = {
+      spawn = [
+        "qs"
+        "ipc"
+        "call"
+        "shell"
+        "toggleLauncher"
+      ];
+    };
 
-    "super+Shift+h".action = move-column-left;
-    "super+Shift+l".action = move-column-right;
-    "super+Shift+k".action = move-column-to-workspace-up;
-    "super+Shift+j".action = move-column-to-workspace-down;
-    
-    "super+ctrl+h".action = focus-monitor-left;
-    "super+ctrl+l".action = focus-monitor-right;
+    "Mod+V" = {
+      spawn = [
+        "dms"
+        "ipc"
+        "call"
+        "clipboard"
+        "toggle"
+      ];
+    };
 
-    "super+1".action = focus-workspace 1;
-    "super+2".action = focus-workspace 2;
-    "super+3".action = focus-workspace 3;
-    "super+4".action = focus-workspace 4;
+    "Mod+H" = {
+      focus-column-left = [];
+    };
+
+    "Mod+L" = {
+      focus-column-right = [];
+    };
+
+    "Mod+K" = {
+      focus-workspace-up = [];
+    };
+
+    "Mod+J" = {
+      focus-workspace-down = [];
+    };
+
+    "Mod+Shift+H" = {
+      move-column-left = [];
+    };
+
+    "Mod+Shift+L" = {
+      move-column-right = [];
+    };
+
+    "Mod+Shift+K" = {
+      move-column-to-workspace-up = [];
+    };
+
+    "Mod+Shift+J" = {
+      move-column-to-workspace-down = [];
+    };
+
+    "Mod+Ctrl+H" = {
+      focus-monitor-left = [];
+    };
+
+    "Mod+Ctrl+L" = {
+      focus-monitor-right = [];
+    };
+
+    "Mod+1" = {
+      focus-workspace = 1;
+    };
+
+    "Mod+2" = {
+      focus-workspace = 2;
+    };
+
+    "Mod+3" = {
+      focus-workspace = 3;
+    };
+
+    "Mod+4" = {
+      focus-workspace = 4;
+    };
   };
 }
+

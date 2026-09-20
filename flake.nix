@@ -6,9 +6,11 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "git+https://codeberg.org/BANanaD3V/niri-nix";
 
     mnw.url = "github:Gerg-L/mnw";
+
+    nvim.url = "github:PyricRL/neovim-dots";
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
@@ -21,7 +23,7 @@
       inputs.quickshell.follows = "quickshell";
     };
 
-    oshot.url = "github:PyricRL/oshot";
+    oshot.url = "github:Toni500github/oshot";
 
     mutagen = {
       url = "github:InioX/Matugen";
@@ -30,7 +32,7 @@
     atk-tool.url = "github:PyricRL/atk-tool";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs, nvim, home-manager, ... }: 
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
