@@ -27,8 +27,12 @@ in
       zstyle ':completion:*' menu select
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
+
+    initContent = ''
+      eval "$(devenv hook zsh)"
+    '';
   };
-  
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -36,7 +40,15 @@ in
     settings = {
       add_newline = true;
 
-      format = "$directory$git_branch$git_status$character";
+      format = "$custom$directory$git_branch$git_status$character";
+
+      custom.devenv = {
+        command = "echo $DEVENV_NAME";
+        when = "test -n \"$DEVENV_NAME\"";
+        format = "[$symbol$output]($style) ";
+        symbol = "  ";
+        style = "bold #ff8700";
+      };
 
       directory = {
         style = "blue";

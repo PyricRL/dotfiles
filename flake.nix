@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -32,28 +33,37 @@
     atk-tool.url = "github:PyricRL/atk-tool";
   };
 
-  outputs = inputs@{ self, nixpkgs, nvim, home-manager, ... }: 
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      nvim,
+      home-manager,
+      ...
+    }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-    nixosConfigurations = {
-      desktop = lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [ 
-          ./hosts/desktop/configuration.nix 
-          inputs.atk-tool.nixosModules.default
-        ];
+    in
+    {
+      nixosConfigurations = {
+        desktop = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/desktop/configuration.nix
+            inputs.atk-tool.nixosModules.default
+          ];
+        };
+      };
+      homeConfigurations = {
+        pyric = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./modules/user/home.nix ];
+          extraSpecialArgs = { inherit inputs; };
+        };
       };
     };
-    homeConfigurations = {
-      pyric = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./modules/user/home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-      };
-    };
-  };
 }

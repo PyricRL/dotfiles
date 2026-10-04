@@ -35,6 +35,20 @@
           opacity = 1.0;
         }
         {
+          match = {
+            _props.title._raw = ''r#"^rocket league$"#'';
+          };
+
+          opacity = 1.0;
+        }
+        {
+          match = {
+            _props.title._raw = ''r#"^oshot$"#'';
+          };
+
+          opacity = 1.0;
+        }
+        {
           geometry-corner-radius._args = [ 6.0 ];
 
           clip-to-geometry = true;
@@ -44,10 +58,6 @@
           ];
         }
         {
-          match = {
-            _props.app-id._raw = ''r#"^Alacritty$"#'';
-          };
-
           background-effect = {
             blur = true;
           };

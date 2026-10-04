@@ -1,4 +1,10 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./recording.nix
@@ -23,11 +29,11 @@
     };
 
     programs.gamemode.enable = true;
-    
+
     environment.systemPackages = with pkgs; [
-      heroic
       prismlauncher
       mangohud
+      inputs.nixpkgs-unstable.legacyPackages.${config.nixpkgs.system}.heroic
     ];
 
     services.udev.packages = with pkgs; [

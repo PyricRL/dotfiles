@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -23,24 +29,31 @@
 
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1216", GROUP="input", MODE="0660"
- '';
+  '';
+
+  services.udev.packages = with pkgs; [
+    platformio-core.udev
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
   services.tailscale.enable = true;
 
   services.atk-tool.enable = true;
-  
+
   nixpkgs.overlays = [
     (final: prev: {
-      openblas = 
-        if prev.stdenv.hostPlatform.system == "i686-linux"
-        then prev.openblas.overrideAttrs (_: {doCheck = false;})
-        else prev.openblas;
+      openblas =
+        if prev.stdenv.hostPlatform.system == "i686-linux" then
+          prev.openblas.overrideAttrs (_: {
+            doCheck = false;
+          })
+        else
+          prev.openblas;
     })
   ];
 
-  fileSystems."/mnt/sda"= {
+  fileSystems."/mnt/sda" = {
     device = "/dev/disk/by-uuid/3f5852d3-5eae-4e94-b7e2-6061d5f241c0";
     fsType = "ext4";
   };
@@ -72,14 +85,18 @@
       defaultFonts = {
         serif = [ "JetBrainsMono Nerd Font" ];
         monospace = [ "JetBrainsMono Nerd Font" ];
-        sansSerif = [ "JetBrainsMono Nerd Font"];
+        sansSerif = [ "JetBrainsMono Nerd Font" ];
       };
     };
   };
 
   users.users.pyric = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" ]; 
+    extraGroups = [
+      "wheel"
+      "input"
+      "dialout"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -87,7 +104,10 @@
 
   programs.gamescope.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   #virtualization
   virtualisation.libvirtd.enable = true;
@@ -114,7 +134,10 @@
 
     config = {
       niri = {
-        default = [ "gnome" "gtk"];
+        default = [
+          "gnome"
+          "gtk"
+        ];
 
         "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
         "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
@@ -122,6 +145,5 @@
     };
   };
 
-  system.stateVersion = "26.05"; 
+  system.stateVersion = "26.05";
 }
-

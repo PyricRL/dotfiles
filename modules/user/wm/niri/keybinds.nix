@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   wayland.windowManager.niri.settings.binds = {
     "Mod+Q" = {
-      close-window = [];
+      close-window = [ ];
     };
 
     "Mod+B" = {
@@ -14,7 +14,7 @@
     };
 
     "Mod+F" = {
-      fullscreen-window = [];
+      fullscreen-window = [ ];
     };
 
     "Mod+E" = {
@@ -22,17 +22,39 @@
     };
 
     "Mod+T" = {
-      toggle-window-floating = [];
+      toggle-window-floating = [ ];
     };
 
     "Mod+Shift+S" = {
-      spawn = "oshot";
+      spawn = [
+        "oshot"
+        "--gui"
+      ];
     };
 
     "Mod+S" = {
       spawn = [
         "oshot"
         "--instant-copy"
+        "--gui"
+      ];
+    };
+
+    "Mod+equal" = {
+      spawn = [
+        "${config.home.homeDirectory}/.dotfiles/nix/modules/system/gaming/scripts/capture-replay.sh"
+      ];
+    };
+
+    "Mod+0" = {
+      spawn = [
+        "${config.home.homeDirectory}/.dotfiles/nix/modules/system/gaming/scripts/start-replay-buffer.sh"
+      ];
+    };
+
+    "Mod+minus" = {
+      spawn = [
+        "${config.home.homeDirectory}/.dotfiles/nix/modules/system/gaming/scripts/close-replay-buffer.sh"
       ];
     };
 
@@ -48,52 +70,62 @@
 
     "Mod+V" = {
       spawn = [
-        "dms"
+        "qs"
         "ipc"
         "call"
+        "shell"
         "clipboard"
-        "toggle"
+      ];
+    };
+
+    "Mod+N" = {
+      spawn = [
+        "qs"
+        "ipc"
+        "call"
+        "shell"
+        "toggleRightMenu"
       ];
     };
 
     "Mod+H" = {
-      focus-column-left = [];
+      focus-column-left = [ ];
     };
 
     "Mod+L" = {
-      focus-column-right = [];
+      focus-column-right = [ ];
     };
 
     "Mod+K" = {
-      focus-workspace-up = [];
+      focus-workspace-up = [ ];
     };
 
     "Mod+J" = {
-      focus-workspace-down = [];
+      focus-workspace-down = [ ];
     };
 
     "Mod+Shift+H" = {
-      move-column-left = [];
+      move-column-left = [ ];
     };
 
     "Mod+Shift+L" = {
-      move-column-right = [];
+      move-column-right = [ ];
     };
 
     "Mod+Shift+K" = {
-      move-column-to-workspace-up = [];
+      move-column-to-workspace-up = [ ];
     };
 
     "Mod+Shift+J" = {
-      move-column-to-workspace-down = [];
+      move-column-to-workspace-down = [ ];
     };
 
     "Mod+Ctrl+H" = {
-      focus-monitor-left = [];
+      focus-monitor-left = [ ];
     };
 
     "Mod+Ctrl+L" = {
-      focus-monitor-right = [];
+      focus-monitor-right = [ ];
     };
 
     "Mod+1" = {
@@ -113,4 +145,3 @@
     };
   };
 }
-
