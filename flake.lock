@@ -291,11 +291,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1791138600,
-        "narHash": "sha256-dKnPjdgp1OdmeznasjJBTjmy4iqK7AnzYQ72bgUUTjY=",
+        "lastModified": 1791139043,
+        "narHash": "sha256-qwQRp8zsLV4FhWAcu8g24JsyoRHPjgKwodMNm5e4b9c=",
         "owner": "PyricRL",
         "repo": "neovim-dots",
-        "rev": "b5d2ff2f069412799c1dc4edfbc8d20d93f27261",
+        "rev": "39774e7223a915e238cc0eb28f7ce870b01ed022",
         "type": "github"
       },
       "original": {

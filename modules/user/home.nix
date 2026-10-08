@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./browser
@@ -55,7 +60,7 @@
     settings = {
       user = {
         name = "Pyric";
-        email = "temp@example.com";
+        email = "ljcosa@icloud.com";
       };
     };
   };

@@ -40,6 +40,27 @@
       ];
     };
 
+    "XF86AudioNext" = {
+      spawn = [
+        "${pkgs.playerctl}/bin/playerctl"
+        "next"
+      ];
+    };
+
+    "XF86AudioPrev" = {
+      spawn = [
+        "${pkgs.playerctl}/bin/playerctl"
+        "previous"
+      ];
+    };
+
+    "XF86AudioPlay" = {
+      spawn = [
+        "${pkgs.playerctl}/bin/playerctl"
+        "play-pause"
+      ];
+    };
+
     "Mod+equal" = {
       spawn = [
         "${config.home.homeDirectory}/.dotfiles/nix/modules/system/gaming/scripts/capture-replay.sh"
