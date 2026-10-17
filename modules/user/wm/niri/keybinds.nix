@@ -17,6 +17,10 @@
       fullscreen-window = [ ];
     };
 
+    "Mod+Shift+F" = {
+      maximize-column = [ ];
+    };
+
     "Mod+E" = {
       spawn = "${pkgs.thunar}/bin/thunar";
     };

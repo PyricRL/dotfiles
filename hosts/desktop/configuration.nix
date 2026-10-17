@@ -80,12 +80,22 @@
     packages = with pkgs; [
       nerd-fonts.caskaydia-mono
       nerd-fonts.jetbrains-mono
+      noto-fonts-emoji
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "JetBrainsMono Nerd Font" ];
-        monospace = [ "JetBrainsMono Nerd Font" ];
-        sansSerif = [ "JetBrainsMono Nerd Font" ];
+        serif = [
+          "JetBrainsMono Nerd Font"
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "JetBrainsMono Nerd Font"
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "JetBrainsMono Nerd Font"
+          "Noto Color Emoji"
+        ];
       };
     };
   };

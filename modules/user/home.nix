@@ -16,6 +16,7 @@
     ./wallpaper.nix
     ./theme.nix
     ./terminal.nix
+    ./printer.nix
   ];
 
   home.username = "pyric";

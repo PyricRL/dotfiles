@@ -4,7 +4,7 @@
     bibata-cursors
     papirus-icon-theme
     qt6Packages.qt6ct
-    mutagen
+    matugen
   ];
 
   home.pointerCursor = {
