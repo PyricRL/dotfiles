@@ -29,6 +29,7 @@
 
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1216", GROUP="input", MODE="0660"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666"
   '';
 
   services.udev.packages = with pkgs; [
@@ -80,7 +81,7 @@
     packages = with pkgs; [
       nerd-fonts.caskaydia-mono
       nerd-fonts.jetbrains-mono
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
     fontconfig = {
       defaultFonts = {
@@ -130,6 +131,7 @@
     gnome-boxes
     dnsmasq
     phodav
+    ddcutil
 
     wget
   ];
