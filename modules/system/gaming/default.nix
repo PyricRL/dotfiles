@@ -34,6 +34,7 @@
       prismlauncher
       mangohud
       inputs.nixpkgs-unstable.legacyPackages.${config.nixpkgs.system}.heroic
+      lutris
     ];
 
     services.udev.packages = with pkgs; [

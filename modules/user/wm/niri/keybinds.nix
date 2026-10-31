@@ -58,6 +58,33 @@
       ];
     };
 
+    "XF86AudioRaiseVolume" = {
+      spawn = [
+        "wpctl"
+        "set-volume"
+        "@DEFAULT_AUDIO_SINK@"
+        "5%+"
+      ];
+    };
+
+    "XF86AudioLowerVolume" = {
+      spawn = [
+        "wpctl"
+        "set-volume"
+        "@DEFAULT_AUDIO_SINK@"
+        "5%-"
+      ];
+    };
+
+    "XF86AudioMute" = {
+      spawn = [
+        "wpctl"
+        "set-mute"
+        "@DEFAULT_AUDIO_SINK@"
+        "toggle"
+      ];
+    };
+
     "XF86AudioPlay" = {
       spawn = [
         "${pkgs.playerctl}/bin/playerctl"

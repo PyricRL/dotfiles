@@ -27,6 +27,8 @@
 
   services.displayManager.ly.enable = true;
 
+  services.usbmuxd.enable = true;
+
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1216", GROUP="input", MODE="0660"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="0666"
@@ -41,6 +43,25 @@
   services.tailscale.enable = true;
 
   services.atk-tool.enable = true;
+
+  programs.artcraft = {
+    enable = true;
+    apps = [
+      "photocraft"
+      "vectorcraft"
+      "filmcraft"
+      "lightcraft"
+      "pdfcraft"
+      "effectcraft"
+      "designcraft"
+      "gridcraft"
+      "wordcraft"
+      "deckcraft"
+      "cadcraft"
+      "soundcraft"
+      "figcraft"
+    ];
+  };
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -134,6 +155,9 @@
     ddcutil
 
     wget
+
+    vulkan-tools
+    mesa
   ];
 
   xdg.portal = {

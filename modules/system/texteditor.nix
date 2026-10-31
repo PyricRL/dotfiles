@@ -8,5 +8,9 @@
     devenv
     direnv
     nix-direnv
+
+    # for sideloading
+    usbmuxd
+    libimobiledevice
   ];
 }

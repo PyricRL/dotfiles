@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    artcraft.url = "github:devitek/artcraft-nixos";
+
     qml-niri = {
       url = "github:imiric/qml-niri/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +57,7 @@
           modules = [
             ./hosts/desktop/configuration.nix
             inputs.atk-tool.nixosModules.default
+            inputs.artcraft.nixosModules.default
           ];
         };
       };
